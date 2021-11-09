@@ -23,11 +23,11 @@ class ChatMessage {
 
   /// A [non-optional] parameter which is used to display images
   /// takes a [Sring] as a url
-  String? image;
+  List<String?> images;
 
   /// A [non-optional] parameter which is used to display vedio
   /// takes a [Sring] as a url
-  String? video;
+  List<String?> videos;
 
   /// A [non-optional] parameter which is used to show quick replies
   /// to the user
@@ -45,8 +45,8 @@ class ChatMessage {
       {String? id,
       required this.text,
       required this.user,
-      this.image,
-      this.video,
+      this.images,
+      this.videos,
       this.quickReplies,
       String Function()? messageIdGenerator,
       DateTime? createdAt,
@@ -59,8 +59,8 @@ class ChatMessage {
   ChatMessage.fromJson(Map<dynamic, dynamic> json) {
     id = json['id'];
     text = json['text'];
-    image = json['image'];
-    video = json['video'] ?? json['vedio'];
+    images = json['image'];
+    videos = json['video'] ?? json['vedio'];
     createdAt = DateTime.fromMillisecondsSinceEpoch(json['createdAt']);
     user = ChatUser.fromJson(json['user']);
     quickReplies = json['quickReplies'] != null
@@ -75,8 +75,8 @@ class ChatMessage {
     try {
       data['id'] = this.id;
       data['text'] = this.text;
-      data['image'] = this.image;
-      data['video'] = this.video;
+      data['image'] = this.images;
+      data['video'] = this.videos;
       data['createdAt'] = this.createdAt.millisecondsSinceEpoch;
       data['user'] = user.toJson();
       data['quickReplies'] = quickReplies?.toJson();
