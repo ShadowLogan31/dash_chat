@@ -186,22 +186,20 @@ class MessageContainer extends StatelessWidget {
             padding: EdgeInsets.all(0),
             shrinkWrap: true,
             scrollDirection: Axis.vertical,
-            itemCount: _drinks.length,
+            itemCount: message.images!.length,
             gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 2, childAspectRatio: 2),
             itemBuilder: (ctx, index) {
-              return message.images!.forEach((element) {
-                Padding(
-                  padding: EdgeInsets.only(top: 10.0, bottom: 10.0),
-                  child: FadeInImage.memoryNetwork(
-                    height: constraints!.maxHeight * 0.3,
-                    width: constraints!.maxWidth * 0.7,
-                    fit: BoxFit.contain,
-                    placeholder: kTransparentImage,
-                    image: element.toString(),
-                  ),
-                );
-              });
+              return Padding(
+                padding: EdgeInsets.only(top: 10.0, bottom: 10.0),
+                child: FadeInImage.memoryNetwork(
+                  height: constraints!.maxHeight * 0.3,
+                  width: constraints!.maxWidth * 0.7,
+                  fit: BoxFit.contain,
+                  placeholder: kTransparentImage,
+                  image: message.images![index].toString(),
+                ),
+              );
             },
           );
     }
