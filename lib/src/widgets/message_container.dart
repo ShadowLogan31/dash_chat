@@ -20,7 +20,7 @@ class MessageContainer extends StatelessWidget {
   /// [messageImageBuilder] function takes a function with this
   /// structure [Widget Function(String)] to render the image inside
   /// the container.
-  final Widget Function(List<Object?>?, [ChatMessage])? messageImageBuilder;
+  final Widget Function(List<Object?>?)? messageImageBuilder;
 
   /// [messageTimeBuilder] function takes a function with this
   /// structure [Widget Function(String)] to render the time text inside
@@ -180,7 +180,7 @@ class MessageContainer extends StatelessWidget {
   Widget _buildMessageImage() {
     if (message.images != null) {
       final gridKey = GlobalKey<FormFieldState>();
-      return messageImageBuilder?.call(message.images, message) ??
+      return messageImageBuilder?.call(message.images) ??
           GridView.builder(
             key: gridKey,
             padding: EdgeInsets.all(0),
