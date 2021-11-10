@@ -178,8 +178,8 @@ class MessageContainer extends StatelessWidget {
   }
 
   Widget _buildMessageImage() {
-    if (message.image != null) {
-      return messageImageBuilder?.call(message.image, message) ??
+    if (message.images != null) {
+      return messageImageBuilder?.call(message.images, message) ??
           Padding(
             padding: EdgeInsets.only(top: 10.0, bottom: 10.0),
             child: FadeInImage.memoryNetwork(
@@ -187,7 +187,7 @@ class MessageContainer extends StatelessWidget {
               width: constraints!.maxWidth * 0.7,
               fit: BoxFit.contain,
               placeholder: kTransparentImage,
-              image: message.image!,
+              image: message.images!,
             ),
           );
     }
