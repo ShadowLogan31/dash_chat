@@ -186,7 +186,7 @@ class MessageContainer extends StatelessWidget {
             padding: EdgeInsets.all(0),
             shrinkWrap: true,
             scrollDirection: Axis.vertical,
-            itemCount: message.images?.length,
+            itemCount: message.images!.length,
             gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 2, childAspectRatio: 2),
             itemBuilder: (ctx, index) {
