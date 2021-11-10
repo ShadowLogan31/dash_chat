@@ -23,11 +23,11 @@ class ChatMessage {
 
   /// A [non-optional] parameter which is used to display images
   /// takes a [Sring] as a url
-  Map<String?, String?>? images = {};
+  Map<String?, String?>? images = Map<String?, String?>();
 
   /// A [non-optional] parameter which is used to display vedio
   /// takes a [Sring] as a url
-  Map<String?, String?>? videos = {};
+  Map<String?, String?>? videos = Map<String?, String?>();
 
   /// A [non-optional] parameter which is used to show quick replies
   /// to the user
