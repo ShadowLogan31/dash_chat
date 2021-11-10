@@ -179,19 +179,31 @@ class MessageContainer extends StatelessWidget {
 
   Widget _buildMessageImage() {
     if (message.images!.isNotEmpty) {
+      final gridKey = GlobalKey<FormFieldState>();
       return messageImageBuilder?.call(message.images, message) ??
-          message.images!.forEach((element) {
-            return Padding(
-              padding: EdgeInsets.only(top: 10.0, bottom: 10.0),
-              child: FadeInImage.memoryNetwork(
-                height: constraints!.maxHeight * 0.3,
-                width: constraints!.maxWidth * 0.7,
-                fit: BoxFit.contain,
-                placeholder: kTransparentImage,
-                image: element.toString(),
-              ),
-            );
-          });
+          GridView.builder(
+            key: gridKey,
+            padding: EdgeInsets.all(0),
+            shrinkWrap: true,
+            scrollDirection: Axis.vertical,
+            itemCount: _drinks.length,
+            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 2, childAspectRatio: 2),
+            itemBuilder: (ctx, index) {
+              return message.images!.forEach((element) {
+                Padding(
+                  padding: EdgeInsets.only(top: 10.0, bottom: 10.0),
+                  child: FadeInImage.memoryNetwork(
+                    height: constraints!.maxHeight * 0.3,
+                    width: constraints!.maxWidth * 0.7,
+                    fit: BoxFit.contain,
+                    placeholder: kTransparentImage,
+                    image: element.toString(),
+                  ),
+                );
+              });
+            },
+          );
     }
     return SizedBox(width: 0, height: 0);
   }
