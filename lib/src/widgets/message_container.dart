@@ -20,8 +20,7 @@ class MessageContainer extends StatelessWidget {
   /// [messageImageBuilder] function takes a function with this
   /// structure [Widget Function(String)] to render the image inside
   /// the container.
-  final Widget Function(Map<String?, String?>?, [ChatMessage])?
-      messageImageBuilder;
+  final Widget Function(List<Object>?, [ChatMessage])? messageImageBuilder;
 
   /// [messageTimeBuilder] function takes a function with this
   /// structure [Widget Function(String)] to render the time text inside
