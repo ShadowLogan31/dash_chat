@@ -179,9 +179,9 @@ class MessageContainer extends StatelessWidget {
 
   Widget _buildMessageImage() {
     if (message.images!.isNotEmpty) {
-      messageImageBuilder?.call(message.images, message) ??
+      return messageImageBuilder?.call(message.images, message) ??
           message.images!.forEach((element) {
-            return Padding(
+            Padding(
               padding: EdgeInsets.only(top: 10.0, bottom: 10.0),
               child: FadeInImage.memoryNetwork(
                 height: constraints!.maxHeight * 0.3,
