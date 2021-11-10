@@ -23,11 +23,11 @@ class ChatMessage {
 
   /// A [non-optional] parameter which is used to display images
   /// takes a [Sring] as a url
-  List<Object?> images = [];
+  List<Object?>? images = [];
 
   /// A [non-optional] parameter which is used to display vedio
   /// takes a [Sring] as a url
-  List<Object?> videos = [];
+  List<Object?>? videos = [];
 
   /// A [non-optional] parameter which is used to show quick replies
   /// to the user
@@ -59,8 +59,8 @@ class ChatMessage {
   ChatMessage.fromJson(Map<dynamic, dynamic> json) {
     id = json['id'];
     text = json['text'];
-    images = json['images'] as List<Object?>;
-    videos = json['videos'] ?? json['vedio'] as List<Object>?;
+    images = json['images'] as List<Object?>?;
+    videos = json['videos'] ?? json['vedio'] as List<Object?>?;
     createdAt = DateTime.fromMillisecondsSinceEpoch(json['createdAt']);
     user = ChatUser.fromJson(json['user']);
     quickReplies = json['quickReplies'] != null
