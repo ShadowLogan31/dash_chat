@@ -20,7 +20,7 @@ class MessageContainer extends StatelessWidget {
   /// [messageImageBuilder] function takes a function with this
   /// structure [Widget Function(String)] to render the image inside
   /// the container.
-  final Widget Function(String?, [ChatMessage])? messageImageBuilder;
+  final Widget Function(List<String?>?, [ChatMessage])? messageImageBuilder;
 
   /// [messageTimeBuilder] function takes a function with this
   /// structure [Widget Function(String)] to render the time text inside
@@ -180,16 +180,18 @@ class MessageContainer extends StatelessWidget {
   Widget _buildMessageImage() {
     if (message.images != null) {
       return messageImageBuilder?.call(message.images, message) ??
-          Padding(
-            padding: EdgeInsets.only(top: 10.0, bottom: 10.0),
-            child: FadeInImage.memoryNetwork(
-              height: constraints!.maxHeight * 0.3,
-              width: constraints!.maxWidth * 0.7,
-              fit: BoxFit.contain,
-              placeholder: kTransparentImage,
-              image: message.images!,
-            ),
-          );
+          message.images.forEach((element) {
+            Padding(
+              padding: EdgeInsets.only(top: 10.0, bottom: 10.0),
+              child: FadeInImage.memoryNetwork(
+                height: constraints!.maxHeight * 0.3,
+                width: constraints!.maxWidth * 0.7,
+                fit: BoxFit.contain,
+                placeholder: kTransparentImage,
+                image: element.toString(),
+              ),
+            );
+          });
     }
     return SizedBox(width: 0, height: 0);
   }
