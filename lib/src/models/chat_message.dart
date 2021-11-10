@@ -75,7 +75,7 @@ class ChatMessage {
     try {
       data['id'] = this.id;
       data['text'] = this.text;
-      data['images'] = this.images;
+      data['images'] = jsonEncode(this.images);
       data['videos'] = this.videos;
       data['createdAt'] = this.createdAt.millisecondsSinceEpoch;
       data['user'] = user.toJson();
