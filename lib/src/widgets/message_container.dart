@@ -178,7 +178,7 @@ class MessageContainer extends StatelessWidget {
   }
 
   Widget _buildMessageImage() {
-    if (message.images != null) {
+    if (message.images!.isNotEmpty) {
       messageImageBuilder?.call(message.images, message) ??
           message.images!.forEach((element) {
             return Padding(
