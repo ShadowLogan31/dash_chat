@@ -179,7 +179,7 @@ class MessageContainer extends StatelessWidget {
 
   Widget _buildMessageImage() {
     if (message.images!.isNotEmpty) {
-      return messageImageBuilder?.call(message.images, message) ??
+      return messageImageBuilder?.call(message.images, message) ?? {
           message.images!.forEach((element) {
             Padding(
               padding: EdgeInsets.only(top: 10.0, bottom: 10.0),
@@ -192,6 +192,7 @@ class MessageContainer extends StatelessWidget {
               ),
             );
           });
+      };
     }
     return SizedBox(width: 0, height: 0);
   }
