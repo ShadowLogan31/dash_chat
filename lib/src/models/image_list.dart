@@ -15,7 +15,7 @@ class ImageList {
 
   ImageList.fromJson(Map<dynamic, dynamic> json) {
     for (var i = 0; i < json['images'].length; i++) {
-      images!.add(json['images'][i]);
+      images?.add(json['images'][i]);
     }
   }
 
