@@ -72,10 +72,11 @@ class ChatMessage {
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = Map<String, dynamic>();
 
+    int index = 0;
     try {
       data['id'] = this.id;
       data['text'] = this.text;
-      data['images'] = images?.toJson();
+      data['images'] = images?.toJson(index++);
       data['videos'] = this.videos;
       data['createdAt'] = this.createdAt.millisecondsSinceEpoch;
       data['user'] = user.toJson();
