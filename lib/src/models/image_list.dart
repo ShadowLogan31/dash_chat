@@ -14,14 +14,16 @@ class ImageList {
   }) {}
 
   ImageList.fromJson(Map<dynamic, dynamic> json) {
-    images!.add(json['images']);
+    for (var i = 0; i < json['images'].length; i++) {
+      images!.add(json['images'][i]);
+    }
   }
 
   Map<String, dynamic> toJson(int index) {
     final Map<String, dynamic> data = Map<String, dynamic>();
 
     try {
-      data[index.toString()] = jsonEncode(images);
+      data["image" + index.toString()] = jsonEncode(images!.elementAt(index));
     } catch (e) {
       print(e);
     }
