@@ -59,7 +59,9 @@ class ChatMessage {
   ChatMessage.fromJson(Map<dynamic, dynamic> json) {
     id = json['id'];
     text = json['text'];
-    images = json['images'] != null ? ImageList.fromJson(json['images']) : null;
+    images = json['images'] != null
+        ? ImageList.fromJson(json['images'], json['images'].length)
+        : null;
     videos = json['videos'] ?? json['vedio'] as List<Object?>?;
     createdAt = DateTime.fromMillisecondsSinceEpoch(json['createdAt']);
     user = ChatUser.fromJson(json['user']);
