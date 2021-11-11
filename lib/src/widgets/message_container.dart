@@ -20,7 +20,7 @@ class MessageContainer extends StatelessWidget {
   /// [messageImageBuilder] function takes a function with this
   /// structure [Widget Function(String)] to render the image inside
   /// the container.
-  final Widget Function(Map<String?, String?>?)? messageImageBuilder;
+  final Widget Function(List<Object?>?)? messageImageBuilder;
 
   /// [messageTimeBuilder] function takes a function with this
   /// structure [Widget Function(String)] to render the time text inside
@@ -197,7 +197,7 @@ class MessageContainer extends StatelessWidget {
                   width: constraints!.maxWidth * 0.7,
                   fit: BoxFit.contain,
                   placeholder: kTransparentImage,
-                  image: message.images![(index).toString()]!,
+                  image: message.images!.elementAt(index).toString(),
                 ),
               );
             },
