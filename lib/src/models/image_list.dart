@@ -14,14 +14,14 @@ class ImageList {
   }) {}
 
   ImageList.fromJson(Map<dynamic, dynamic> json) {
-    images = json['images'] as List<Object>;
+    images = json['images'];
   }
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = Map<String, dynamic>();
 
     try {
-      data['images'] = images;
+      data['images'] = jsonEncode(images);
     } catch (e) {
       print(e);
     }
