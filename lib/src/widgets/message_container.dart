@@ -20,7 +20,7 @@ class MessageContainer extends StatelessWidget {
   /// [messageImageBuilder] function takes a function with this
   /// structure [Widget Function(String)] to render the image inside
   /// the container.
-  final Widget Function(Map<String?, String?>?)? messageImageBuilder;
+  final Widget Function(ImageList?)? messageImageBuilder;
 
   /// [messageTimeBuilder] function takes a function with this
   /// structure [Widget Function(String)] to render the time text inside
@@ -186,7 +186,7 @@ class MessageContainer extends StatelessWidget {
             padding: EdgeInsets.all(0),
             shrinkWrap: true,
             scrollDirection: Axis.vertical,
-            itemCount: message.images?.length,
+            itemCount: message.images?.images!.length,
             gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 2, childAspectRatio: 2),
             itemBuilder: (ctx, index) {
@@ -197,7 +197,7 @@ class MessageContainer extends StatelessWidget {
                   width: constraints!.maxWidth * 0.7,
                   fit: BoxFit.contain,
                   placeholder: kTransparentImage,
-                  image: message.images![index.toString()]!,
+                  image: message.images!.images![index],
                 ),
               );
             },
