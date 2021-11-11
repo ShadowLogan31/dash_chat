@@ -20,6 +20,7 @@ class ImageList {
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = Map<String, dynamic>();
 
+    print(jsonEncode(images));
     try {
       data['images'] = jsonEncode(images);
     } catch (e) {
