@@ -14,7 +14,9 @@ class ImageList {
   }) {}
 
   ImageList.fromJson(Map<dynamic, dynamic> json) {
-    images = json['images'] as List<Object>;
+    images = json['images']
+        .map<ImageList>((json) => ImageList.fromJson(json))
+        .toList();
   }
 
   Map<String, dynamic> toJson() {
