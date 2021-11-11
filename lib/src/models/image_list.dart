@@ -5,24 +5,23 @@ part of dash_chat;
 class ImageList {
   /// Unique id of the user if no unique is provided a [UUID v4]
   /// is automatically assigned to the chat user.
-  List<Object>? images;
+  List<String>? images;
 
   /// functionality to dashchat.
 
   ImageList({
-    List<Object>? images,
+    List<String>? images,
   }) {}
 
   ImageList.fromJson(Map<dynamic, dynamic> json) {
     images = json['images'];
   }
 
-  Map<String, dynamic> toJson() {
+  Map<String, dynamic> toJson(int index) {
     final Map<String, dynamic> data = Map<String, dynamic>();
 
-    print(jsonEncode(images));
     try {
-      data['images'] = jsonEncode(images);
+      data[index.toString()] = jsonEncode(images);
     } catch (e) {
       print(e);
     }
