@@ -27,7 +27,7 @@ class ChatMessage {
 
   /// A [non-optional] parameter which is used to display vedio
   /// takes a [Sring] as a url
-  Map<String?, String?> videos = {};
+  Map<String?, String?>? videos = {};
 
   /// A [non-optional] parameter which is used to show quick replies
   /// to the user

@@ -197,7 +197,7 @@ class MessageContainer extends StatelessWidget {
                   width: constraints!.maxWidth * 0.7,
                   fit: BoxFit.contain,
                   placeholder: kTransparentImage,
-                  image: message.images![(index).toString()],
+                  image: message.images![(index).toString()]!,
                 ),
               );
             },
