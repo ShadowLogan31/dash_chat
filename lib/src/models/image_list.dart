@@ -24,7 +24,7 @@ class ImageList {
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = Map<String, dynamic>();
-
+    print("TOJSON LENGTH: " + images!.length.toString());
     for (int i = 0; i < images!.length; i++) {
       try {
         data["image" + i.toString()] = jsonEncode(images?.elementAt(i));
