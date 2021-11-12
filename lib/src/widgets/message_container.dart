@@ -180,7 +180,7 @@ class MessageContainer extends StatelessWidget {
   Widget _buildMessageImage() {
     if (message.images != null) {
       final gridKey = GlobalKey<FormFieldState>();
-      return messageImageBuilder?.call(message.images) ??
+      return messageImageBuilder?.call(message.images!) ??
           GridView.builder(
             key: gridKey,
             padding: EdgeInsets.all(0),
