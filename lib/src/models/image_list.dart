@@ -22,10 +22,10 @@ class ImageList {
     }
   }
 
-  Map<String, dynamic> toJson(int index) {
+  Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = Map<String, dynamic>();
 
-    for (int i = 0; i < index; i++) {
+    for (int i = 0; i < images!.length; i++) {
       try {
         data["image" + i.toString()] = jsonEncode(images?.elementAt(i));
       } catch (e) {
