@@ -11,7 +11,9 @@ class ImageList {
 
   ImageList({
     List<String>? images,
-  }) {}
+  }) {
+    this.images = images;
+  }
 
   ImageList.fromJson(Map<dynamic, dynamic> json, int length) {
     for (int i = 0; i < length; i++) {
