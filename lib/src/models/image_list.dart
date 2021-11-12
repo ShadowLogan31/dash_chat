@@ -9,11 +9,7 @@ class ImageList {
 
   /// functionality to dashchat.
 
-  ImageList({
-    List<String>? images,
-  }) {
-    this.images = images;
-  }
+  ImageList({this.images});
 
   ImageList.fromJson(Map<dynamic, dynamic> json, int length) {
     print("LENGTH" + length.toString());
@@ -25,7 +21,7 @@ class ImageList {
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = Map<String, dynamic>();
     try {
-      data["image" + 0.toString()] = jsonEncode(images);
+      data["image" + 0.toString()] = images;
     } catch (e) {
       print(e);
     }
