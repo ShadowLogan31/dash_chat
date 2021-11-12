@@ -9,12 +9,6 @@ class ImageList {
 
   /// functionality to dashchat.
 
-  ImageList({
-    List<String>? images,
-  }) {
-    images = images;
-  }
-
   ImageList.fromJson(Map<dynamic, dynamic> json, int length) {
     print("LENGTH" + length.toString());
     for (int i = 0; i < length; i++) {
@@ -24,7 +18,6 @@ class ImageList {
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = Map<String, dynamic>();
-    print("TOJSON LENGTH: " + images!.length.toString());
     for (int i = 0; i < images!.length; i++) {
       try {
         data["image" + i.toString()] = jsonEncode(images?.elementAt(i));
