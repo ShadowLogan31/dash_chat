@@ -17,8 +17,10 @@ class ImageList {
 
   ImageList.fromJson(Map<dynamic, dynamic> json) {
     print("LENGTH: " + json.length.toString());
-    print("JSONIMAGE: " + json['image' + 0.toString()].toString());
-    images?.add(json['image' + 0.toString()].toString());
+    for (int i = 0; i < json.length; i++) {
+      print("JSONIMAGE: " + json['image' + '$i'].toString());
+      images?.add(json['image' + '$i'].toString());
+    }
     print("IMAGES: " + images.toString());
   }
 
