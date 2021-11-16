@@ -18,6 +18,7 @@ class ImageList {
   ImageList.fromJson(Map<dynamic, dynamic> json) {
     print("LENGTH: " + json.length.toString());
     json.forEach((key, value) {
+      print("VALUE:" + value);
       images?.add(value);
     });
     print("IMAGES: " + images.toString());
