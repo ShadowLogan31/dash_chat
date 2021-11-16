@@ -20,7 +20,7 @@ class ImageList {
     print("MADE IT");
     for (int i = 0; i < json.length; i++) {
       print("JSONIMAGES:" + json['image$i']);
-      images?.add(json['image$i'].toString());
+      images?.add(json['image$i']);
     }
     print("IMAGES: " + images.toString());
   }
