@@ -26,8 +26,7 @@ class ImageList {
 
     try {
       for (int i = 0; i < images!.length; i++) {
-        Object imageURL = jsonEncode(images!.elementAt(i));
-        data['image' + i.toString()] = imageURL;
+        data['image' + i.toString()] = images!.elementAt(i);
       }
     } catch (e) {
       print(e);
